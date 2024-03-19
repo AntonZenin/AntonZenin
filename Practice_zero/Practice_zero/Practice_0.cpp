@@ -24,10 +24,10 @@ TVector::TVector(const TVector& v)  //конструктор копирования
     }
 }
 
-TVector::~TVector()      //деструктор 
-{
-    delete[] this->x;
-}
+//TVector::~TVector()      //деструктор 
+//{
+//    delete[] this->x;
+//}
 
 TVector TVector::operator+(const TVector& v)
 {
