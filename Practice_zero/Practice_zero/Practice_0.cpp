@@ -1,5 +1,7 @@
 #include <iostream>
 #include <exception>
+#include <fstream>
+#include <sstream>
 #include "Practice0.h"
 
 TVector::TVector()
@@ -56,28 +58,26 @@ TVector TVector::operator-(const TVector& v)
     }
     return res;
 }
-
-TVector TVector::operator*(const TVector& v) 
+ 
+double TVector::operator*(const TVector& v)  
 { 
     if (this->n != v.n)
     {
         throw std::exception("Diff length");
     }
-    TVector res(this->n);
-    for (int i = 0; i < this->n; i++) {
-        res.x[i] = this->x[i] * v.x[i];
+    double res = 0;
+    for (int i = 0; i < this->n; i++)
+    {
+        res = res + (this->x[i] * v.x[i]); 
     }
-    return res;
+    return res; 
 }
 
-TVector& TVector::operator=(TVector& v)  
+const TVector& TVector::operator=(TVector& v)  
 {
-    if (this->n != v.n)
-    {
-        throw std::exception("Diff length");
-    }
     this->n = v.n;
-
+    this->x = new double[this->n];
+    
     for (int i = 0; i < this->n; i++) {
         this->x[i] = v.x[i];
     }
