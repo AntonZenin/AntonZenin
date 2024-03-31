@@ -13,7 +13,7 @@ struct TVector
     TVector();
     TVector(int n);
     TVector(const TVector&);
-    //~TVector();
+    ~TVector();
 
     TVector operator+(const TVector&);
     TVector operator-(const TVector&);
@@ -22,6 +22,7 @@ struct TVector
 
     friend std::ofstream& operator<<(std::ofstream& out, TVector& v)
     {
+        out << "Length: " << v.n << "\n";
         out << "Vector: "; 
         for (int i = 0; i < v.n; i++)
         {

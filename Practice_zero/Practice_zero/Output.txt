@@ -1,3 +1,5 @@
-Vector: 12 12 12 
+Length: 3
+Vector: 14 14 14 
+Length: 3
 Vector: 4 4 4 
-96
+135

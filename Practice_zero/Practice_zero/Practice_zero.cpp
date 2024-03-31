@@ -3,20 +3,17 @@
 
 int main(int argc, char ** argv)
 {
-    std::ofstream off;
-    std::ifstream in;
-    char* infilename, * outfilename;
-
     if (argc < 3)
     {
         std::cout << "Invalid arguments!";
         return 1;
     }
-    infilename = argv[1];
-    outfilename = argv[2];
+    char* infilename = argv[1];
+    char* outfilename = argv[2]; 
 
     TVector v1, v2;
-    
+
+    std::ifstream in; 
     in.open(infilename); 
     in >> v1 >> v2; 
     in.close(); 
@@ -28,6 +25,7 @@ int main(int argc, char ** argv)
     TVector diff = v1 - v2;
     double mult = v1 * v2; 
     
+    std::ofstream off; 
     off.open(outfilename);
     off << summ << diff << mult;
     off.close();

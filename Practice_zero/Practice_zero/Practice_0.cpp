@@ -13,7 +13,7 @@ TVector::TVector()
 TVector::TVector(int n) //конструктор с параметром 
 {
     this->n = n;
-    this->x = new double(n);
+    this->x = new double[n];
 }
 
 TVector::TVector(const TVector& v)  //конструктор копирования 
@@ -26,10 +26,13 @@ TVector::TVector(const TVector& v)  //конструктор копирования
     }
 }
 
-//TVector::~TVector()      //деструктор 
-//{
-//    delete[] this->x;
-//}
+TVector::~TVector()      //деструктор 
+{
+    if (this->x != nullptr)
+    {
+        delete[] this->x;
+    }
+}
 
 TVector TVector::operator+(const TVector& v)
 {
@@ -45,6 +48,9 @@ TVector TVector::operator+(const TVector& v)
     return res;
 }
 
+
+
+
 TVector TVector::operator-(const TVector& v)
 {
     if (this->n != v.n)
@@ -59,24 +65,38 @@ TVector TVector::operator-(const TVector& v)
     return res;
 }
  
+
+
+
 double TVector::operator*(const TVector& v)  
 { 
     if (this->n != v.n)
     {
         throw std::exception("Diff length");
     }
-    double res = 0;
+    double res = 0.0;
     for (int i = 0; i < this->n; i++)
     {
-        res = res + (this->x[i] * v.x[i]); 
+        res += (this->x[i] * v.x[i]); 
     }
     return res; 
 }
 
-const TVector& TVector::operator=(TVector& v)  
+const TVector& TVector::operator=(TVector& v) 
 {
-    this->n = v.n;
-    this->x = new double[this->n];
+    if (this == &v)
+    {
+        return *this;
+    }
+    if (this->n != v.n)
+    {
+        this->n = v.n;
+        if (this->x != nullptr)
+        {
+            delete[] this->x;
+        }
+        this->x = new double[this->n];
+    }
     
     for (int i = 0; i < this->n; i++) {
         this->x[i] = v.x[i];
@@ -103,10 +123,12 @@ std::istream& operator>>(std::istream& in, TVector& v)
 
 std::ostream& operator<<(std::ostream& out, const TVector& v)
 {
+    out << "Length: " << v.n << "\n";
     out << "Vector: ";
     for (int i = 0; i < v.n; i++)
     {
         out << v.x[i] << " ";
     }
+    out << "\n";
     return out;
 }
