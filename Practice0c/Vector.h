@@ -7,13 +7,14 @@ typedef struct {
     double* x;
 }TVector;
 
+void freeMemory(TVector v1, TVector v2, TVector s1, TVector s2); 
 void alloc(TVector* v, int n);
 TVector summ(TVector* v1, TVector* v2);
 TVector diff(TVector* v1, TVector* v2);
 double mult(TVector* v1, TVector* v2);
 void fill(const char* filename, TVector* v1, TVector* v2);
 void print(TVector* v);
-void write(const char* filename, TVector* sum, TVector* sub, double* mult);
+void write(const char* filename, TVector* sum, TVector* sub, double mult);
 
 #endif 
 

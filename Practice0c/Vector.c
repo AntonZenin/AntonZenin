@@ -2,6 +2,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void freeMemory(TVector v1, TVector v2, TVector s1, TVector s2) {
+    free(v1.x);
+    free(v2.x);
+    if (s1.x != NULL)
+    {
+        free(s1.x);
+    }
+    if (s2.x != NULL)
+    {
+        free(s2.x);
+    }
+}
 
 void alloc(TVector* v, int n)
 {
@@ -52,7 +64,7 @@ void fill(const char* filename, TVector* v1, TVector* v2)
     fclose(f);
 }
 
-void write(const char* filename, TVector* sum, TVector* sub, double* mult)
+void write(const char* filename, TVector* sum, TVector* sub, double mult)
 {
     int i = 0;
     FILE* f = fopen(filename, "w+");
@@ -71,7 +83,7 @@ void write(const char* filename, TVector* sum, TVector* sub, double* mult)
     {
         fprintf(f, "%lf ", sub->x[i]);
     }
-    fprintf(f, "\nMult is %lf\n", *mult);
+    fprintf(f, "\nMult is %lf\n", mult);
     fclose(f);
 }
 
