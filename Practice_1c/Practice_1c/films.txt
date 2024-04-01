@@ -1,0 +1,6 @@
+5
+Film1 Anton Zenin Russia 2022 1000000.50 5000000.75
+Film2 Ivan Lukin USA 2021 500000.25 2000000.4
+Film3 Alexey Ivanov Britain 2020 200000.75 1000000.25
+Film4 Anton Zenin Russia 2005 100000 5000000
+Film5 Alexey Zenin Russia 2010 10000 500000
