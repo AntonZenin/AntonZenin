@@ -7,17 +7,20 @@
 
 
 int main() {
-    FILE* file = fopen("films.txt", "r");
+
     char directorName[MAX_LENGTH];
     char directorSurname[MAX_LENGTH];
     int choice;
 
-    if (file == NULL) {
-        printf("Failed to open the file.\n");
-        return 1;
-    }
     do {
-        printf("Input choice for operatinos: 1 - search for films, 2 - close the program\n");
+        FILE* file = fopen("films.txt", "r");
+
+
+        if (file == NULL) {
+            printf("Failed to open the file.\n");
+            return 1;
+        }
+        printf("\nInput choice for operatinos: 1 - search for films, 2 - close the program\n");
         scanf("%d", &choice);
         switch (choice) {
         case 1:
@@ -28,6 +31,7 @@ int main() {
             scanf("%s", directorSurname);
 
             findFilmByDirector(file, directorName, directorSurname);
+            fclose(file);
 
             break;
         case 2:
@@ -37,7 +41,9 @@ int main() {
         }
 
     } while (choice != 2);
-    fclose(file);
+
+    freeFilms; 
+
 
     return 0;
 }

@@ -49,11 +49,11 @@ void findFilmByDirector(FILE* file, const char* directorName, const char* direct
     }
 }
 
-//void freeFilms(Film* film) {
-//  free(film->title);
-//    free(film->directorSurname); 
-//    free(film->directorName);
-//    free(film->country);
+void freeFilms(Film* film) {
+    free(film->title);
+    free(film->directorSurname);
+    free(film->directorName);
+    free(film->country); 
 
-//    free(film);  
-//} 
+    free(film);
+} 
