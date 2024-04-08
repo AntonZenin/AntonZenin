@@ -3,47 +3,29 @@
 #include <string.h>
 #include "Practice1c.h"
 
-#define MAX_LENGTH 100
+
 
 
 int main() {
+    char firstName[100], lastName[100]; 
+    FilmLib* lib = createFilmLib(10);//Assume we have 10 films in the file
 
-    char directorName[MAX_LENGTH];
-    char directorSurname[MAX_LENGTH];
-    int choice;
+    readFilmDataFromFile("films.txt", lib);
 
-    do {
-        FILE* file = fopen("films.txt", "r");
+   
+    printf("Enter director's first name: ");
+    scanf("%s", firstName);
+    printf("Enter director's last name: ");
+    scanf("%s", lastName);
 
+    printf("\nFilms by %s %s:\n", firstName, lastName);
+    printFilmsByDirector(lib, firstName, lastName);
 
-        if (file == NULL) {
-            printf("Failed to open the file.\n");
-            return 1;
-        }
-        printf("\nInput choice for operatinos: 1 - search for films, 2 - close the program\n");
-        scanf("%d", &choice);
-        switch (choice) {
-        case 1:
-            printf("Enter director's name: ");
-            scanf("%s", directorName);
-
-            printf("Enter director's surname: ");
-            scanf("%s", directorSurname);
-
-            findFilmByDirector(file, directorName, directorSurname);
-            fclose(file);
-
-            break;
-        case 2:
-            break;
-        default:
-            printf("Wrong choice\n");
-        }
-
-    } while (choice != 2);
-
-    freeFilms; 
-
+    //freeFilms; 
 
     return 0;
 }
+
+   
+
+

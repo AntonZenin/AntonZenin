@@ -3,57 +3,75 @@
 #include <string.h>
 #include "Practice1c.h"
 
-#define MAX_LENGTH 100
 
-
-void readFilmData(FILE* file, Film* film) {
-    film->title = (char*)malloc(MAX_LENGTH * sizeof(char));
-    film->directorSurname = (char*)malloc(MAX_LENGTH * sizeof(char));
-    film->directorName = (char*)malloc(MAX_LENGTH * sizeof(char));
-    film->country = (char*)malloc(MAX_LENGTH * sizeof(char));
-
-    fscanf(file, "%s", film->title);
-    fscanf(file, "%s", film->directorSurname);
-    fscanf(file, "%s", film->directorName);
-    fscanf(file, "%s", film->country);
-    fscanf(file, "%d", &(film->year));
-    fscanf(file, "%lf", &(film->budget));
-    fscanf(file, "%lf", &(film->gross));
+FilmLib* createFilmLib(int size) {
+    FilmLib* lib = (FilmLib*)malloc(sizeof(FilmLib));
+    lib->films = (Film*)malloc(size * sizeof(Film));
+    lib->numFilms = size;
+    return lib;
 }
 
-void printFilmData(Film* film) {
-    printf("\nTitle: %s\n", film->title);
-    printf("Director: %s %s\n", film->directorName, film->directorSurname);
+
+void readFilmDataFromFile(char* fileName, FilmLib* lib) {
+    FILE* file = fopen(fileName, "r");
+    if (file == NULL) {
+        printf("Error opening file.");
+        exit(1);
+    }
+
+    for (int i = 0; i < lib->numFilms; i++) {
+        char buffer[100];
+        fgets(buffer, sizeof(buffer), file);
+
+        char* token = strtok(buffer, ",");
+        lib->films[i].filmName = _strdup(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].director = (Director*)malloc(sizeof(Director));
+        lib->films[i].director->directorFirstName = _strdup(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].director->directorLastName = _strdup(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].country = _strdup(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].year = atoi(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].budget = atof(token);
+
+        token = strtok(NULL, ",");
+        lib->films[i].boxOffice = atof(token);
+    }
+
+    fclose(file);
+}
+
+void printFilmInfo(Film* film) {
+    printf("Film Name: %s\n", film->filmName);
+    printf("Director: %s %s\n", film->director->directorFirstName, film->director->directorLastName);
     printf("Country: %s\n", film->country);
     printf("Year: %d\n", film->year);
-    printf("Budget: %.2lf\n", film->budget);
-    printf("Gross: %.2lf\n", film->gross);
-
+    printf("Budget:  %.2f\n", film->budget);
+    printf("Box Office: %.2f\n", film->boxOffice);
+    printf("\n");
 }
 
-void findFilmByDirector(FILE* file, const char* directorName, const char* directorSurname) {
-    Film film;
-    int isFound = 0;
-
-    while (!feof(file)) {
-        readFilmData(file, &film);
-
-        if (strcmp(film.directorName, directorName) == 0 && strcmp(film.directorSurname, directorSurname) == 0) {
-            printFilmData(&film);
-            isFound = 1;
+void printFilmsByDirector(FilmLib* lib, char* firstName, char* lastName) {
+    for (int i = 0; i < lib->numFilms; i++) {
+        if (strcmp(lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(lib->films[i].director->directorLastName, lastName) == 0) {
+            printFilmInfo(&lib->films[i]);
         }
     }
-
-    if (!isFound) {
-        printf("Film not found for director: %s %s\n", directorName, directorSurname);
-    }
 }
 
-void freeFilms(Film* film) {
-    free(film->title);
-    free(film->directorSurname);
-    free(film->directorName);
-    free(film->country); 
+//void freeFilms(Film* film) {
+//   free(film->title);
+//    free(film->directorSurname);
+//    free(film->directorName);
+//    free(film->country); 
 
-    free(film);
-} 
+//    free(film);
+//} 

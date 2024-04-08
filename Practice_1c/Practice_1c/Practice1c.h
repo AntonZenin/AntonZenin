@@ -2,21 +2,35 @@
 
 #define FUNC
 
-// Структура для хранения информации о фильме
 typedef struct {
-    char* title;
-    char* directorSurname;
-    char* directorName;
+    char* directorFirstName;
+    char* directorLastName;
+} Director;
+
+typedef struct {
+    char* filmName;
+    Director* director;
     char* country;
     int year;
-    double budget;
-    double gross;
+    float budget;
+    float boxOffice;
 } Film;
 
-void readFilmData(FILE* file, Film* film);
-void printFilmData(Film* film);
-void findFilmByDirector(FILE* file, const char* directorName, const char* directorSurname);
-void freeFilms(Film* film); 
+typedef struct {
+    Film* films;
+    int numFilms;
+} FilmLib; 
+
+FilmLib* createFilmLib(int size); 
+void readFilmDataFromFile(char* fileName, FilmLib* lib); //добавить функцию чтобы выводила списки фильмов всех режиссеров
+void printFilmInfo(Film* film);
+void printFilmsByDirector(FilmLib* lib, char* firstName, char* lastName);
+//void freeFilms(Film* film); 
+
+//void readFilmData(FILE* file, Film* film); // -> FilmLib
+//void printFilmData(Film* film); // + FilmLib
+//void findFilmByDirector(FILE* file, const char* directorName, const char* directorSurname); // <- FilmLib, name; -> FilmLib
+//void freeFilms(Film* film); 
 
 
 #endif 
