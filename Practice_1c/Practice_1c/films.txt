@@ -8,3 +8,4 @@ Gentlemen,Ritchie,Guy,UK,2019,22000000,114996853
 Terminator,James,Cameron,USA,1984,6400000,78371200
 Star Wars,George,Lucas,USA,1999,115000000,1027044677
 Cheburashka,Dmitry,Dyachenko,Russia,2022,9186630,76148695
+Venom,Ruben,Fleischer,USA,2018,115000000,856100000
