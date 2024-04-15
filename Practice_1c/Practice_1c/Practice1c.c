@@ -25,26 +25,26 @@ void readFilmDataFromFile(char* fileName, FilmLib* lib) {
         char buffer[MAX_LENGTH];
         fgets(buffer, sizeof(buffer), file);
 
-        char* token = strtok(buffer, ",");
+        char* token = strtok(buffer, ";");
         lib->films[i].title = _strdup(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].director = (Director*)malloc(sizeof(Director));
         lib->films[i].director->directorFirstName = _strdup(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].director->directorLastName = _strdup(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].country = _strdup(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].year = atoi(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].budget = atof(token);
 
-        token = strtok(NULL, ",");
+        token = strtok(NULL, ";");
         lib->films[i].boxOffice = atof(token);
     }
 

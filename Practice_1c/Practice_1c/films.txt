@@ -1,11 +1,11 @@
-Interstellar,Christopher,Nolan,UK,2014,165000000,731000000
-Avatar,James,Cameron,USA,2009,246000000,2923706026
-Titanic,James,Cameron,USA,1997,200000000,2264000000
-Hobbit,Peter,Jackson,USA,2012,250000000,1017003568
-Harry Potter,Christopher,Columbus,UK,2001,125000000,1000000000
-Home Alone,Christopher,Columbus,USA,1990,18000000,476000000
-Gentlemen,Ritchie,Guy,UK,2019,22000000,114996853
-Terminator,James,Cameron,USA,1984,6400000,78371200
-Star Wars,George,Lucas,USA,1999,115000000,1027044677
-Cheburashka,Dmitry,Dyachenko,Russia,2022,9186630,76148695
-Venom,Ruben,Fleischer,USA,2018,115000000,856100000
+Interstellar;Christopher;Nolan;UK;2014;165000000;731000000
+Avatar;James;Cameron;USA;2009;246000000;2923706026
+Titanic;James;Cameron;USA;1997;200000000;2264000000
+Hobbit;Peter;Jackson;USA;2012;250000000;1017003568
+Harry Potter;Christopher;Columbus;UK;2001;125000000;1000000000
+Home Alone;Christopher;Columbus;USA;1990;18000000;476000000
+Gentlemen;Ritchie;Guy;UK;2019;22000000;114996853
+Terminator;James;Cameron;USA;1984;6400000;78371200
+Star Wars;George;Lucas;USA;1999;115000000;1027044677
+Cheburashka;Dmitry;Dyachenko;Russia;2022;9186630;76148695
+Venom;Ruben;Fleischer;USA;2018;115000000;856100000
