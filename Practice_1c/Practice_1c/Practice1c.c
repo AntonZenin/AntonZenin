@@ -61,26 +61,60 @@ void printFilmInfo(Film* film) {
     printf("\n");
 }
 
-void printFilmsByDirector(FilmLib* lib, char* firstName, char* lastName) {
+FilmLib* printFilmsByDirector(FilmLib* lib, char* firstName, char* lastName) { 
+    int count = 0, index = 0;
     int isFound = 0;
     for (int i = 0; i < lib->numFilms; i++) {
         if (strcmp(lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(lib->films[i].director->directorLastName, lastName) == 0) {
-            printFilmInfo(&lib->films[i]);
-            isFound = 1; 
+            isFound = 1;
+
+        }
+    }
+    if (!isFound) { 
+        printf("Films not found for director: %s %s\n", firstName, lastName); 
+    } 
+    
+    for (int i = 0; i < lib->numFilms; i++) {                      //Подсчет фильмов у режиссера
+        if (strcmp(lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(lib->films[i].director->directorLastName, lastName) == 0) {
+            count++;
+            
         }
     }
 
-    if (!isFound) {
-        printf("Film not found for director: %s %s\n", firstName, lastName);
+    FilmLib* director_films = (FilmLib*)malloc(sizeof(FilmLib));  //Выделение памяти под массив фильмов режиссера
+        if (director_films == NULL) { 
+            printf("Memory allocation failed.\n"); 
+            return NULL; 
+        }; 
+    director_films->films = (Film*)malloc(count * sizeof(Film));
+    director_films->numFilms = count; 
+
+                                                  //Заполнение массива фильмов режиссера
+    for (int i = 0; i < lib->numFilms; i++) {
+        if (strcmp(lib->films[i].director->directorFirstName, firstName) == 0 &&
+            strcmp(lib->films[i].director->directorLastName, lastName) == 0) {
+            director_films->films[index] = lib->films[i];
+            index++;
+        }
+        
     }
+
+    for (int i = 0; i < director_films->numFilms; i++) {   // Вывод информации о фильмах
+        printFilmInfo(&director_films->films[i]);  
+
+    }
+
+    return director_films; 
+
 }
+
 
 void freeFilmLibrary(FilmLib* lib) {
     for (int i = 0; i < lib->numFilms; i++) {
         free(lib->films[i].title);
-        free(lib->films[i].director->directorFirstName);
+        free(lib->films[i].director->directorFirstName); 
         free(lib->films[i].director->directorLastName); 
-        free(lib->films[i].director); 
+        free(lib->films[i].director);  
         free(lib->films[i].country); 
     }
     free(lib->films);
