@@ -18,14 +18,15 @@ typedef struct {
 
 typedef struct {
     Film* films;
-    int numFilms;
+    int count;
 } FilmLib;
 
-FilmLib* createFilmLib(int size);
-void readFilmDataFromFile(char* fileName, FilmLib* lib);
+
+
+FilmLib* readFilmDataFromFile(const char* filename, FilmLib* Lib);
+FilmLib* printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName); 
 void printFilmInfo(Film* film);
-FilmLib* printFilmsByDirector(FilmLib* lib, char* firstName, char* lastName);
-void freeFilmLibrary(FilmLib* lib);  
+void freeFilmLibrary(FilmLib* Lib);  
 
 #endif 
 
