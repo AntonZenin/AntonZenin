@@ -46,53 +46,17 @@ FilmLib* readFilmDataFromFile(char* filename, FilmLib* Lib) {
     fclose(file);
 }
 
-
-
-FilmLib* printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName) {
-    int count = 0, index = 0;
+void printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName) { 
     int isFound = 0;
     for (int i = 0; i < Lib->count; i++) {
-        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) { 
+        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {  
             isFound = 1;
-
+            printFilmInfo(&Lib->films[i]); 
         }
     }
-    if (!isFound) { 
+    if (!isFound) {
         printf("Films not found for director: %s %s\n", firstName, lastName); 
-    } 
-    
-    for (int i = 0; i < Lib->count; i++) {                      //Подсчет фильмов у режиссера
-        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {
-            count++;
-            
-        }
     }
-
-    FilmLib* director_films = (FilmLib*)malloc(sizeof(FilmLib));  //Выделение памяти под массив фильмов режиссера
-        if (director_films == NULL) { 
-            printf("Memory allocation failed.\n"); 
-            return NULL; 
-        }; 
-    director_films->films = (Film*)malloc(count * sizeof(Film));
-    director_films->count = count; 
-
-                                                  //Заполнение массива фильмов режиссера
-    for (int i = 0; i < Lib->count; i++) {
-        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 &&
-            strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {
-            director_films->films[index] = Lib->films[i];
-            index++;
-        }
-        
-    }
-
-    for (int i = 0; i < director_films->count; i++) {   // Вывод информации о фильмах
-        printFilmInfo(&director_films->films[i]);  
-
-    }
-
-    return director_films; 
-
 }
 
 void printFilmInfo(Film* film) { 

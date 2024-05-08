@@ -10,9 +10,6 @@ int main(int argc, char** argv)
 {
     char firstName[L]; 
     char lastName[L];
-    int count_of_films = 0; 
-    int count_of_found_films = 0; 
-    
     FilmLib Lib;
     char* infilename;
     if (argc < 2)
