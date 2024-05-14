@@ -40,27 +40,49 @@ FilmLib* readFilmDataFromFile(char* filename, FilmLib* Lib) {
         Lib->films[i].budget = atof(token);
 
         token = strtok(NULL, ";");
-        Lib->films[i].boxOffice = atof(token); 
+        Lib->films[i].boxOffice = atof(token);
     }
 
     fclose(file);
 }
 
-void printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName) { 
-    int isFound = 0;
+FilmLib* printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName) {
+    int  isFound = 0, index = 0, count = 0;
+    // Первый проход для подсчета количества фильмов нужного режиссёра
     for (int i = 0; i < Lib->count; i++) {
-        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {  
+        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {
             isFound = 1;
-            printFilmInfo(&Lib->films[i]); 
+            count++;
         }
     }
     if (!isFound) {
-        printf("Films not found for director: %s %s\n", firstName, lastName); 
+        printf("\nFilms not found for director: %s %s\n", firstName, lastName);
+    }
+
+    FilmLib* newlib = (FilmLib*)malloc(sizeof(FilmLib));                   // Создание новой библиотеки фильмов этого режиссёра
+    newlib->films = (Film*)malloc(count * sizeof(Film));
+    newlib->count = count;
+
+
+
+    for (int i = 0; i < Lib->count; i++) {                                 // Второй проход для заполнения новой библиотеки
+        if (strcmp(Lib->films[i].director->directorFirstName, firstName) == 0 && strcmp(Lib->films[i].director->directorLastName, lastName) == 0) {
+            newlib->films[index] = Lib->films[i];
+            index++;
+        }
+    }
+
+    return newlib;
+} 
+
+void printFilmLibrary(FilmLib* Lib) {
+    for (int i = 0; i < Lib->count; i++) {
+        printFilmInfo(&Lib->films[i]);
     }
 }
 
-void printFilmInfo(Film* film) { 
-    printf("Title: %s\n", film->title);
+void printFilmInfo(Film* film) {
+    printf("\nTitle: %s\n", film->title);
     printf("Director: %s %s\n", film->director->directorFirstName, film->director->directorLastName);
     printf("Country: %s\n", film->country);
     printf("Year: %d\n", film->year);
@@ -69,15 +91,14 @@ void printFilmInfo(Film* film) {
     printf("\n");
 } 
 
-
 void freeFilmLibrary(FilmLib* Lib) {
     for (int i = 0; i < Lib->count; i++) {
         free(Lib->films[i].title);
-        free(Lib->films[i].director->directorFirstName); 
-        free(Lib->films[i].director->directorLastName); 
-        free(Lib->films[i].director);  
-        free(Lib->films[i].country); 
+        free(Lib->films[i].director->directorFirstName);
+        free(Lib->films[i].director->directorLastName);
+        free(Lib->films[i].director);
+        free(Lib->films[i].country);
     }
     free(Lib->films);
-}
+} 
 

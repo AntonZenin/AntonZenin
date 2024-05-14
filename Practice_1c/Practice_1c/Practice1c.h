@@ -24,9 +24,10 @@ typedef struct {
 
 
 FilmLib* readFilmDataFromFile(const char* filename, FilmLib* Lib);
-void printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName);  
+FilmLib* printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName);
+void printFilmLibrary(FilmLib* Lib);
 void printFilmInfo(Film* film);
-void freeFilmLibrary(FilmLib* Lib);  
+void freeFilmLibrary(FilmLib* Lib); 
 
 #endif 
 
