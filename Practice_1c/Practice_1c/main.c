@@ -9,8 +9,7 @@
 int main(int argc, char** argv)
 {
     int choice = 0;
-    char firstName[L];
-    char lastName[L];
+    Director director;
     FilmLib Lib;
     FilmLib* newlib;
     char* infilename;
@@ -31,12 +30,16 @@ int main(int argc, char** argv)
             printFilmLibrary(&Lib);
             break;
         case 1:
-            printf("Enter director's first name: ");
-            scanf("%s", firstName);
-            printf("Enter director's last name: ");
-            scanf("%s", lastName);
-            newlib = printFilmsByDirector(&Lib, firstName, lastName);
+            printf("Enter director's first name and last name: ");
+            director.directorFirstName = (char*)malloc(L * sizeof(char));
+            director.directorLastName = (char*)malloc(L * sizeof(char));
+            scanf("%s %s", director.directorFirstName, director.directorLastName);
+
+            newlib = printFilmsByDirector(&Lib, director);
             printFilmLibrary(newlib);
+            free(director.directorFirstName);
+            free(director.directorLastName);
+            freeFilmLibrary(&newlib);
             break;
         case 2:
             break;

@@ -9,7 +9,7 @@ typedef struct {
 
 typedef struct {
     char* title;
-    Director* director;
+    Director director;
     char* country;
     int year;
     double budget;
@@ -22,12 +22,12 @@ typedef struct {
 } FilmLib;
 
 
-
+void copyfilm(Film* dest, Film* src);
 FilmLib* readFilmDataFromFile(const char* filename, FilmLib* Lib);
-FilmLib* printFilmsByDirector(FilmLib* Lib, char* firstName, char* lastName);
+FilmLib* printFilmsByDirector(FilmLib* Lib, Director director);
 void printFilmLibrary(FilmLib* Lib);
 void printFilmInfo(Film* film);
-void freeFilmLibrary(FilmLib* Lib); 
+void freeFilmLibrary(FilmLib* Lib);
 
 #endif 
 
