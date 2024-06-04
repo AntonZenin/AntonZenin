@@ -2,30 +2,39 @@
 
 #define FUNC
 
+#include <iostream>
+#include <fstream>
 #include <string>
+#include <vector>
+#include <sstream>
+#include <iomanip>
 
-struct Director {
+struct director {
     std::string directorfirstname;
     std::string directorlastname;
 };
 
-struct Film {
+struct film {
     std::string title;
-    Director* director;
+    director director;
     std::string country;
     int year;
     double budget;
-    double boxOffice;
+    double boxoffice;
 };
 
-struct FilmLib {
-    Film* films;
+struct filmlib {
+    std::vector<film> films;
     int count;
 };
 
-FilmLib* readFilmDataFromFile(const char* filename, FilmLib* Lib);
-void printFilmsByDirector(FilmLib* Lib, std::string firstname, std::string lastname);
-void printFilmInfo(Film* film);
-void freefilmlibrary(FilmLib* Lib);
+void copyfilm(film* dest, film* src);
+filmlib* readfilmdatafromfile(const char* filename, filmlib* lib);
+filmlib* printfilmsbydirector(filmlib* lib, director director);
+void printfilmlibrary(filmlib* lib);
+void printfilminfo(film* film);
+void freefilmlibrary(filmlib* lib);
+
+
 
 #endif
