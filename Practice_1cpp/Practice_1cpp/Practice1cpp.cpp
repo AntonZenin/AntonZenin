@@ -1,12 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
-#include <sstream>
 #include <iomanip>
 #include "Practice1cpp.h"
 
 #define l 255
+
 
 filmlib* readfilmdatafromfile(char* filename, filmlib* lib) {
     std::ifstream file(filename);
@@ -18,7 +17,7 @@ filmlib* readfilmdatafromfile(char* filename, filmlib* lib) {
     std::string line;
     std::getline(file, line);
     lib->count = std::stoi(line);
-    lib->films.resize(lib->count);
+    lib->films = new film[lib->count];
 
     for (int i = 0; i < lib->count; i++) {
         std::string buffer;
@@ -26,19 +25,19 @@ filmlib* readfilmdatafromfile(char* filename, filmlib* lib) {
 
         std::string::size_type pos = 0;
         std::string token = buffer.substr(0, buffer.find(';'));
-        lib->films[i].title = _strdup(token.c_str());
+        lib->films[i].title = token;
 
         pos = buffer.find(';', pos) + 1;
         token = buffer.substr(pos, buffer.find(';', pos) - pos);
-        lib->films[i].director.directorfirstname = _strdup(token.c_str());
+        lib->films[i].director.directorfirstname = token;
 
         pos = buffer.find(';', pos) + 1;
         token = buffer.substr(pos, buffer.find(';', pos) - pos);
-        lib->films[i].director.directorlastname = _strdup(token.c_str());
+        lib->films[i].director.directorlastname = token;
 
         pos = buffer.find(';', pos) + 1;
         token = buffer.substr(pos, buffer.find(';', pos) - pos);
-        lib->films[i].country = _strdup(token.c_str());
+        lib->films[i].country = token;
 
         pos = buffer.find(';', pos) + 1;
         token = buffer.substr(pos, buffer.find(';', pos) - pos);
@@ -55,25 +54,26 @@ filmlib* readfilmdatafromfile(char* filename, filmlib* lib) {
 
     file.close();
     return lib;
-}
+} 
 
 filmlib* printfilmsbydirector(filmlib* lib, director director) {
-    int isfound = 0, index = 0, count = 0;
-
+    int count = 0;
     for (int i = 0; i < lib->count; i++) {
         if (lib->films[i].director.directorfirstname == director.directorfirstname && lib->films[i].director.directorlastname == director.directorlastname) {
-            isfound = 1;
             count++;
         }
     }
-    if (!isfound) {
-        std::cout << "\nFilms not found for director: " << director.directorfirstname << " " << director.directorlastname << "\n";
+
+    if (count == 0) {
+        std::cout << "\nfilms not found for director: " << director.directorfirstname << " " << director.directorlastname << "\n";
+        return nullptr;
     }
 
     filmlib* newlib = new filmlib;
-    newlib->films.resize(count);
+    newlib->films = new film[count];
     newlib->count = count;
 
+    int index = 0;
     for (int i = 0; i < lib->count; i++) {
         if (lib->films[i].director.directorfirstname == director.directorfirstname && lib->films[i].director.directorlastname == director.directorlastname) {
             copyfilm(&newlib->films[index], &lib->films[i]);
@@ -117,5 +117,6 @@ void freefilmlibrary(filmlib* lib) {
         lib->films[i].director.directorlastname.clear();
         lib->films[i].country.clear();
     }
-    lib->films.clear();
+    delete[] lib->films;
+    lib->films = nullptr;
 }

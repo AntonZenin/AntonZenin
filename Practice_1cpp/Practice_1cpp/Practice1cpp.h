@@ -3,11 +3,6 @@
 #define FUNC
 
 #include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <sstream>
-#include <iomanip>
 
 struct director {
     std::string directorfirstname;
@@ -24,9 +19,9 @@ struct film {
 };
 
 struct filmlib {
-    std::vector<film> films;
+    film* films;
     int count;
-};
+}; 
 
 void copyfilm(film* dest, film* src);
 filmlib* readfilmdatafromfile(const char* filename, filmlib* lib);
