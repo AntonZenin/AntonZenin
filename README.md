@@ -1,5 +1,5 @@
 ## Hi there 👋
-I am Anton Zenin and I am a third year student of Lobachevsky State University of Nizhny Novgorod.   
+**I am Anton Zenin and I am a third year student of Lobachevsky State University of Nizhny Novgorod.**   
 I am learning the following programming tools:  ![Static Badge](https://img.shields.io/badge/C-blue)
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-violet)  ![Static Badge](https://img.shields.io/badge/C%23-darkblue)
   ![Static Badge](https://img.shields.io/badge/JavaScript-yellow)  ![Static Badge](https://img.shields.io/badge/Java-grey)
