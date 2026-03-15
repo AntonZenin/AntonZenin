@@ -3,7 +3,7 @@
 I am learning the following programming tools:  ![Static Badge](https://img.shields.io/badge/C-blue)
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-violet)  ![Static Badge](https://img.shields.io/badge/C%23-darkblue)
   ![Static Badge](https://img.shields.io/badge/JavaScript-yellow)  ![Static Badge](https://img.shields.io/badge/Java-grey)
-  ![Static Badge](https://img.shields.io/badge/LLVM-blue)  ![Static Badge](https://img.shields.io/badge/PostgreSQL-indigo)  ![Static Badge](https://img.shields.io/badge/MsMPI-purple)  ![Static Badge](https://img.shields.io/badge/HTML-orange)
+  ![Static Badge](https://img.shields.io/badge/LLVM-blue)  ![Static Badge](https://img.shields.io/badge/Kotlin-indigo)  ![Static Badge](https://img.shields.io/badge/MsMPI-purple)  ![Static Badge](https://img.shields.io/badge/HTML-orange)
 
 
 ![NPM Version](https://img.shields.io/npm/v/npm)
