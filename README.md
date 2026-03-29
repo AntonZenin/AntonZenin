@@ -1,5 +1,6 @@
 ## Hi there 👋
-**My name is Anton Zenin and I am a third year student of Lobachevsky State University of Nizhny Novgorod.**   
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Goldman&size=21&letterSpacing=1px&duration=4980&pause=1015&color=7102E6&background=FF193200&width=435&lines=My+name+is+Anton+Zenin;I+am+from+Nizhny+Novgorod,+Russia;I+am+a+third+year+student+of+NNSU)](https://git.io/typing-svg)
+
 I am learning the following programming tools:  
 
 ![C++](https://img.shields.io/badge/C++-e86dbb?style=for-the-badge&logo=c++&logoColor=white)
