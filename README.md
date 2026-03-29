@@ -1,7 +1,7 @@
 ## Hi there 👋
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Goldman&size=21&letterSpacing=1px&duration=4980&pause=1015&color=7102E6&background=FF193200&width=435&lines=My+name+is+Anton+Zenin;I+am+from+Nizhny+Novgorod,+Russia;I+am+a+third+year+student+of+NNSU)](https://git.io/typing-svg)
 
-I am learning the following programming tools:  
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Zen+Dots&size=15&duration=4980&pause=1015&color=2409E6&background=FF193200&repeat=false&width=435&lines=I+am+learning+the+following+programming+tools%3A)](https://git.io/typing-svg)
 
 ![C++](https://img.shields.io/badge/C++-e86dbb?style=for-the-badge&logo=c++&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
