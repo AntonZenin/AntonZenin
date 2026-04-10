@@ -10,7 +10,8 @@
 ![Kotlin](https://img.shields.io/badge/Kotlin-c23be8?style=for-the-badge&logo=kotlin&logoColor=white)
 ![LLVM](https://img.shields.io/badge/LLVM-034502?style=for-the-badge&logo=llvm&logoColor=white)
 
-
+Certificates: \
+JavaScript (in progress): https://stepik.org/cert/3114509
 
 
 
