@@ -11,7 +11,7 @@
 ![LLVM](https://img.shields.io/badge/LLVM-034502?style=for-the-badge&logo=llvm&logoColor=white)
 
 ## Certificates
-- Kotlin (in progress): https://stepik.org/cert/3226867
+- Kotlin for beginners (in progress): https://stepik.org/cert/3226867
 - JavaScript (in progress): https://stepik.org/cert/3114509
 
 
