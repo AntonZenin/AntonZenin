@@ -15,6 +15,12 @@
 - JavaScript (in progress): https://stepik.org/cert/3114509
 
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake.svg">
+  <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake.svg">
+</picture>
+
 
 
 
