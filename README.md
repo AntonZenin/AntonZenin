@@ -21,6 +21,9 @@
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake.svg">
 </picture>
 
+<p align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=AntonZenin&theme=dracula&show_icons=true&hide_border=true&count_private=true&locale=ru">
+</p>
 
 
 
