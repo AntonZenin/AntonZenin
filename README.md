@@ -14,17 +14,16 @@
 - Kotlin for beginners (in progress): https://stepik.org/cert/3226867
 - JavaScript (in progress): https://stepik.org/cert/3114509
 
+<p align="center">
+  <img src="https://github-readme-stats-fast.vercel.app/api?username=AntonZenin&theme=radical&show_icons=true&hide_border=true&count_private=true&locale=ru" height="165">
+  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=AntonZenin&theme=radical&locale=ru&layout=compact&hide_border=true" height="350">
+</p>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake.svg">
   <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/AntonZenin/AntonZenin/output/github-snake.svg">
 </picture>
-
-<p align="center">
-  <img src="https://github-readme-stats-fast.vercel.app/api?username=AntonZenin&theme=radical&show_icons=true&hide_border=true&count_private=true&locale=ru" height="165">
-  <img src="https://github-readme-stats-fast.vercel.app/api/top-langs/?username=AntonZenin&theme=radical&locale=ru&layout=compact&hide_border=true" height="350">
-</p>
 
 
 
